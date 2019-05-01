@@ -1,6 +1,7 @@
 package io.github.lizhangqu.app;
 
 import android.app.Application;
+import android.content.res.Resources;
 
 import io.github.sample.detect.Sample;
 
@@ -14,5 +15,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         new Sample();
+        Resources resources = getResources();
+        resources.getIdentifier("", "", "");
     }
 }
