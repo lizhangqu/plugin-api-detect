@@ -3,6 +3,8 @@ apply plugin: 'api.detect'
 api {
     detectPattern "io.github.sample.*"
     detectPattern "org.apache.*"
+
+    detectMethodPattern "android.content.res.Resources.getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I"
 }
 
 android {
@@ -51,4 +53,3 @@ dependencies {
     compile 'com.android.support:appcompat-v7:27.1.1'
     compile 'com.android.support.constraint:constraint-layout:1.1.3'
 }
-
