@@ -17,16 +17,16 @@
 package io.github.lizhangqu.dexdeps;
 
 public class MethodRef {
-    private String mDeclClass, mReturnType, mMethodName;
+    private String mDeclaredClass, mReturnType, mMethodName;
     private String[] mArgTypes;
     private boolean mInternal;
 
     /**
      * Initializes a new field reference.
      */
-    public MethodRef(String declClass, String[] argTypes, String returnType,
+    public MethodRef(String declaredClass, String[] argTypes, String returnType,
                      String methodName, boolean internal) {
-        mDeclClass = declClass;
+        mDeclaredClass = declaredClass;
         mArgTypes = argTypes;
         mReturnType = returnType;
         mMethodName = methodName;
@@ -36,10 +36,13 @@ public class MethodRef {
     /**
      * Gets the name of the method's declaring class.
      */
-    public String getDeclClassName() {
-        return mDeclClass;
+    public String getDeclaredClassName() {
+        return mDeclaredClass;
     }
 
+    public String getDeclaredClassDescriptorName() {
+        return Utility.descriptorToDot(getDeclaredClassName());
+    }
     /**
      * Gets the method's descriptor.
      */
@@ -103,7 +106,7 @@ public class MethodRef {
 
     @Override
     public String toString() {
-        return Utility.descriptorToDot(getDeclClassName()) +
+        return Utility.descriptorToDot(getDeclaredClassName()) +
                 "." + getName() + getDescriptor();
     }
 

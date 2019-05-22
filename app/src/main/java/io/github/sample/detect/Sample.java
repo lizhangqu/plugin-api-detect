@@ -6,4 +6,5 @@ package io.github.sample.detect;
  * @since 2019-04-30 16:36
  */
 public class Sample {
+    public  String a;
 }

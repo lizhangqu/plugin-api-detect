@@ -17,14 +17,14 @@
 package io.github.lizhangqu.dexdeps;
 
 public class FieldRef {
-    private String mDeclClass, mFieldType, mFieldName;
+    private String mDeclaredClass, mFieldType, mFieldName;
     private boolean mInternal;
 
     /**
      * Initializes a new field reference.
      */
-    public FieldRef(String declClass, String fieldType, String fieldName, boolean internal) {
-        mDeclClass = declClass;
+    public FieldRef(String declaredClass, String fieldType, String fieldName, boolean internal) {
+        mDeclaredClass = declaredClass;
         mFieldType = fieldType;
         mFieldName = fieldName;
         mInternal = internal;
@@ -33,8 +33,12 @@ public class FieldRef {
     /**
      * Gets the name of the field's declaring class.
      */
-    public String getDeclClassName() {
-        return mDeclClass;
+    public String getDeclaredClassName() {
+        return mDeclaredClass;
+    }
+
+    public String getDeclaredClassDescriptorName() {
+        return Utility.descriptorToDot(getDeclaredClassName());
     }
 
     /**
@@ -68,7 +72,7 @@ public class FieldRef {
 
     @Override
     public String toString() {
-        return Utility.descriptorToDot(getDeclClassName()) +
+        return Utility.descriptorToDot(getDeclaredClassName()) +
                 "." + getName() + ":" + getTypeName();
     }
 }

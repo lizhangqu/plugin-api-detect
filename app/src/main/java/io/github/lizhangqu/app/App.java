@@ -15,6 +15,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         new Sample();
+        String a = new Sample().a;
         Resources resources = getResources();
         resources.getIdentifier("", "", "");
     }

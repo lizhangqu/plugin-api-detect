@@ -5,6 +5,7 @@ api {
     detectPattern "org.apache.*"
 
     detectMethodPattern "android.content.res.Resources.getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I"
+//    detectMethodPattern "android.content.Context.getResources()Landroid/content/res/Resources;"
 }
 
 android {
