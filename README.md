@@ -6,7 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "io.github.lizhangqu:plugin-api-detect:1.0.2"
+        classpath "io.github.lizhangqu:plugin-api-detect:1.0.3"
     }
 }
 
