@@ -14,7 +14,7 @@ import org.gradle.api.Task
 import org.gradle.api.tasks.TaskCollection
 
 /**
- * @author lizhangqu* @version V1.0* @since 2019-03-22 12:52
+ * @author lizhangqu
  */
 class ApiDetectPlugin implements Plugin<Project> {
 
@@ -37,6 +37,9 @@ class ApiDetectPlugin implements Plugin<Project> {
         variants?.all { BaseVariant variant ->
             def variantName = variant.getName()
             def mergeJniLibsTask = findTransformTaskByTransformName(project, variantName, "mergeJniLibs")
+            if (mergeJniLibsTask == null) {
+                mergeJniLibsTask = project.getTasks().findByName(("merge${variantName.capitalize()}NativeLibs"))
+            }
             if (mergeJniLibsTask) {
                 mergeJniLibsTask.doLast {
                     Map<String, File> bundles = new HashMap<>()
