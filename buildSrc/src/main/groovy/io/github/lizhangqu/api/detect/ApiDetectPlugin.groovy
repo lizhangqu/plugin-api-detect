@@ -101,7 +101,7 @@ class ApiDetectPlugin implements Plugin<Project> {
     }
 
     static boolean collectBundle(Project project, File file, Map<String, File> bundles) {
-        if (isBundle(file)) {
+        if (file.getParentFile().getName() != 'zip-cache' && isBundle(file)) {
             String bundleMd5 = file.withInputStream {
                 //noinspection UnnecessaryQualifiedReference
                 new java.security.DigestInputStream(it, java.security.MessageDigest.getInstance('MD5')).withStream {
