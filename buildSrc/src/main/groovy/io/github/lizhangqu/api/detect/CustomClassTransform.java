@@ -108,7 +108,7 @@ public class CustomClassTransform extends Transform {
                 File inputJar = jarInput.getFile();
                 File outputJar =
                         outputProvider.getContentLocation(
-                                jarInput.getFile().toString(),
+                                jarInput.getName(),
                                 jarInput.getContentTypes(),
                                 jarInput.getScopes(),
                                 Format.JAR);
@@ -133,7 +133,7 @@ public class CustomClassTransform extends Transform {
                 File inputDir = di.getFile();
                 File outputDir =
                         outputProvider.getContentLocation(
-                                di.getFile().toString(),
+                                di.getName(),
                                 di.getContentTypes(),
                                 di.getScopes(),
                                 Format.DIRECTORY);
