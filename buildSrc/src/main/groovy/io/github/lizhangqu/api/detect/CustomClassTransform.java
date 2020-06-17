@@ -51,7 +51,7 @@ public class CustomClassTransform extends Transform {
     @NonNull
     private final Class<?> clazz;
 
-    private final boolean isSupportIncremental = true;
+    private boolean isSupportIncremental = true;
 
     public CustomClassTransform(Project project, @NonNull Class<?> clazz, boolean isSupportIncremental) {
         this.project = project;
