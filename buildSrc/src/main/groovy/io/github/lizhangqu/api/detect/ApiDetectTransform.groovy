@@ -21,6 +21,12 @@ class ApiDetectTransform implements Consumer<InputStream, OutputStream> {
     }
 
     @Override
+    public boolean isIncremental() {
+        return false;
+    }
+
+
+    @Override
     void accept(String variantName, String path, InputStream inputStream, OutputStream outputStream) {
 
 
