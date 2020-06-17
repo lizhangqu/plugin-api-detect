@@ -22,7 +22,7 @@ class ApiDetectPlugin implements Plugin<Project> {
     void apply(Project project) {
         project.getExtensions().create("api", ApiExtension.class)
         BaseExtension android = project.getExtensions().getByType(BaseExtension.class)
-        def transform = new CustomClassTransform(project, ApiDetectTransform.class)
+        def transform = new CustomClassTransform(project, ApiDetectTransform.class, false)
         android.registerTransform(transform)
 
 

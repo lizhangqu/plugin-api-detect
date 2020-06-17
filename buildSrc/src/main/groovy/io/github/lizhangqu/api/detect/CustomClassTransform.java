@@ -51,10 +51,13 @@ public class CustomClassTransform extends Transform {
     @NonNull
     private final Class<?> clazz;
 
-    public CustomClassTransform(Project project, @NonNull Class<?> clazz) {
+    private final boolean isSupportIncremental = true;
+
+    public CustomClassTransform(Project project, @NonNull Class<?> clazz, boolean isSupportIncremental) {
         this.project = project;
         this.name = clazz.getName().replaceAll("\\.", "_");
         this.clazz = clazz;
+        this.isSupportIncremental = isSupportIncremental;
     }
 
     @NonNull
@@ -87,7 +90,7 @@ public class CustomClassTransform extends Transform {
 
     @Override
     public boolean isIncremental() {
-        return true;
+        return isSupportIncremental;
     }
 
     @Override
