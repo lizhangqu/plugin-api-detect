@@ -36,6 +36,10 @@ class ApiDetectPlugin implements Plugin<Project> {
 
         variants?.all { BaseVariant variant ->
             def variantName = variant.getName()
+            def task = findTransformTaskByTransformName(project, variantName, ApiDetectTransform.class.getName().replace('.', '_'))
+            //always execute
+            task?.outputs?.upToDateWhen { false }
+
             def mergeJniLibsTask = findTransformTaskByTransformName(project, variantName, "mergeJniLibs")
             if (mergeJniLibsTask == null) {
                 mergeJniLibsTask = project.getTasks().findByName(("merge${variantName.capitalize()}NativeLibs"))
