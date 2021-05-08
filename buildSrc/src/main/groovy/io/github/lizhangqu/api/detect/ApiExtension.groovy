@@ -100,11 +100,11 @@ class ApiExtension {
         }
         //convert \\[
         if (input.contains("[")) {
-            input = input.replace("[", "\\\\[")
+            input = input.replace("[", "\\[")
         }
         //convert \\]
         if (input.contains("]")) {
-            input = input.replace("]", "\\\\]")
+            input = input.replace("]", "\\]")
         }
         //convert ？to .
         if (input.contains("?")) {
