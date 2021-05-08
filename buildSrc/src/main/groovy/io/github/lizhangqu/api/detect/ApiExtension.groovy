@@ -98,6 +98,14 @@ class ApiExtension {
         if (input.contains(")")) {
             input = input.replaceAll("\\)", "\\\\)")
         }
+        //convert \\[
+        if (input.contains("[")) {
+            input = input.replace("[", "\\\\[")
+        }
+        //convert \\]
+        if (input.contains("]")) {
+            input = input.replace("]", "\\\\]")
+        }
         //convert ？to .
         if (input.contains("?")) {
             input = input.replaceAll("\\?", "\\.")
