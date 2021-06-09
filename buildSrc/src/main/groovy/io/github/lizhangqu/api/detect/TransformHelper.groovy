@@ -66,7 +66,11 @@ public class TransformHelper {
             Object compileClasspath = resolveEnumValue("COMPILE_CLASSPATH", Class.forName('com.android.build.gradle.internal.publishing.AndroidArtifacts$ConsumedConfigType'))
             Object allArtifactScope = resolveEnumValue("ALL", Class.forName('com.android.build.gradle.internal.publishing.AndroidArtifacts$ArtifactScope'))
             Object classes = resolveEnumValue("CLASSES", Class.forName('com.android.build.gradle.internal.publishing.AndroidArtifacts$ArtifactType'))
-            return variantData.getScope().getArtifactFileCollection(compileClasspath, allArtifactScope, classes)
+            try {
+                return variantData.getVariantDependencies().getArtifactFileCollection(compileClasspath, allArtifactScope, classes)
+            } catch (Exception e) {
+                return variantData.getScope().getArtifactFileCollection(compileClasspath, allArtifactScope, classes)
+            }
         } else {
             try {
                 return foundVariant.getCompileLibraries()
