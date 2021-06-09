@@ -28,7 +28,7 @@ buildscript {
         if (localFile.exists()) {
             extProperties.load(localFile.newDataInputStream())
         }
-        def androidGradlePluginVersion = "3.2.1"
+        def androidGradlePluginVersion = "4.1.3"
         if (extProperties.containsKey('gradleVersion')) {
             androidGradlePluginVersion = extProperties.get("gradleVersion") as String
         }
